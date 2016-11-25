@@ -3,7 +3,7 @@ clear;
 close all;
 
 % constants
-fieldSize = 50;
+fieldSize = 100;
 numberOfPoints = 10;
 
 
