@@ -4,10 +4,10 @@ package Task1;
  * Created by svetl on 15.11.2016.
  */
 public class Line {
-    private int pointX1;
-    private int pointY1;
-    private int pointX2;
-    private int pointY2;
+    private double pointX1;
+    private double pointY1;
+    private double pointX2;
+    private double pointY2;
 
     /**
      * Constructor of the line
@@ -17,7 +17,7 @@ public class Line {
      * @param x2 - end x-coordinate of the line
      * @param y2 - end y-coordinate of the line
      */
-    public Line(int x1, int y1, int x2, int y2) {
+    public Line(double x1, double y1, double x2, double y2) {
         this.pointX1 = x1;
         this.pointY1 = y1;
         this.pointX2 = x2;
@@ -48,7 +48,7 @@ public class Line {
      * @param y3 - y coordinate of given point
      * @return true if given point belongs to the given segment
      */
-    private boolean onSegment(int x1, int y1, int x2, int y2, int x3, int y3)
+    private boolean onSegment(double x1, double y1, double x2, double y2, double x3, double y3)
     {
         return x3 <= Math.max(x1, x2) && x3 >= Math.min(x1, x2) && y3 <= Math.max(y1, y2) && y3 >= Math.min(y1, y2);
     }
@@ -64,8 +64,8 @@ public class Line {
      * @param y3 y-coordinate of the third point
      * @return code of the orientation (0 - collinear, 1 - clockwise, 2 - counterclockwise
      */
-    private int orientation(int x1, int y1, int x2, int y2, int x3, int y3) {
-        int val = (y2 - y1) * (x3 - x2) - (y3 - y2) * (x2 - x1);
+    private int orientation(double x1, double y1, double x2, double y2, double x3, double y3) {
+        double val = (y2 - y1) * (x3 - x2) - (y3 - y2) * (x2 - x1);
         if (val == 0) {
             return 0;
 
@@ -114,13 +114,13 @@ public class Line {
      * @return true if line intersect top, left or right side of the rectangle
      */
     public boolean isIntersect(Rectangle rectangle) {
-        int rbx = rectangle.getRightBottomX();
-        int rby = rectangle.getRightBottomY();
-        int rWidth = rectangle.getWidth();
-        int rHeight = rectangle.getHeight();
-        Line lside = new Line(rbx - rWidth, rby, rbx - rWidth, rby + rHeight);
-        Line tside = new Line(rbx - rWidth, rby + rHeight, rbx, rby + rHeight);
-        Line rside = new Line(rbx, rby + rHeight, rbx, rby);
+        double x = rectangle.getOriginX();
+        double y = rectangle.getOriginY();
+        double width = rectangle.getWidth();
+        double height = rectangle.getHeight();
+        Line lside = new Line(x, y, x, y + height);
+        Line tside = new Line(x, y + height, x + width, y + height);
+        Line rside = new Line(x + width, y, x + width, y + height);
 
         return isIntersect(lside) || isIntersect(tside) || isIntersect(rside);
     }

@@ -4,9 +4,9 @@ package Task1;
  * Created by svetl on 14.11.2016.
  */
 public class Circle {
-    private int centerX;
-    private int centerY;
-    private int radius;
+    private double centerX;
+    private double centerY;
+    private double radius;
 
     /**
      * Constructor of the circle
@@ -14,21 +14,21 @@ public class Circle {
      * @param y y-coordinate of the center
      * @param r circle's radius
      */
-    public Circle(int x, int y, int r) {
+    public Circle(double x, double y, double r) {
         this.centerX = x;
         this.centerY = y;
         this.radius = r;
     }
 
-    public int getCenterX() {
+    public double getCenterX() {
         return centerX;
     }
 
-    public int getCenterY() {
+    public double getCenterY() {
         return centerY;
     }
 
-    public int getRadius() {
+    public double getRadius() {
         return radius;
     }
 }

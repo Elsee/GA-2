@@ -3,11 +3,12 @@ package Task1;
 /**
  * Created by svetl on 14.11.2016.
  */
-public class Rectangle {
+public class Tank {
     private double originX;
     private double originY;
     private double width;
     private double height;
+    public String name;
 
     /**
      * Constructor of the rectangle
@@ -16,11 +17,12 @@ public class Rectangle {
      * @param w rectangle's width
      * @param h rectangle's height
      */
-    public Rectangle(double x, double y, double w, double h) {
+    public Tank(double x, double y, double w, double h,String name) {
         this.originX = x;
         this.originY = y;
         this.width = w;
         this.height = h;
+        this.name=name;
     }
 
     public double getOriginX() {
@@ -37,5 +39,9 @@ public class Rectangle {
 
     public double getHeight() {
         return height;
+    }
+
+    public Rectangle toRectangle(){
+        return new Rectangle(originX, originY, width, height);
     }
 }
